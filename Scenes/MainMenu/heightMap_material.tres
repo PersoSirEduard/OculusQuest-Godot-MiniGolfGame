@@ -1,0 +1,37 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type spatial;
+
+uniform vec4 dirt_color : hint_color;
+uniform float dirt_h = 0;
+uniform vec4 grass_color : hint_color;
+uniform float grass_h = 0;
+uniform vec4 rock_color : hint_color;
+uniform float rock_h = 0;
+
+varying vec3 out_color;
+
+void vertex() {
+	float h = VERTEX.y;
+	if (h <= dirt_h) {
+		out_color = dirt_color.rgb;
+	} else if (h <= grass_h)  {
+		out_color = grass_color.rgb;
+	} else {
+		out_color = rock_color.rgb;
+	}
+}
+
+void fragment() {
+	ALBEDO = out_color;
+}"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/dirt_color = Color( 0.168627, 0.133333, 0.0352941, 1 )
+shader_param/dirt_h = 0.932
+shader_param/grass_color = Color( 0.0627451, 0.360784, 0.0823529, 1 )
+shader_param/grass_h = 4.235
+shader_param/rock_color = Color( 0.329412, 0.329412, 0.329412, 1 )
+shader_param/rock_h = 0.0

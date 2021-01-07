@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/GameArea/GameArea.gd" type="Script" id=1]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="CubeMesh" id=2]
+
+[sub_resource type="SpatialMaterial" id=3]
+flags_transparent = true
+albedo_color = Color( 0.654902, 0.854902, 1, 0.301961 )
+
+[node name="GameArea" type="Area" groups=[
+"GameArea",
+]]
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+visible = false
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+[connection signal="body_entered" from="." to="." method="_on_GameArea_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_GameArea_body_exited"]
