@@ -1,0 +1,147 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Modules/Connection_Modules.gd" type="Script" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.156863, 0.141176, 0.121569, 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.2, 0.596078, 0.129412, 1 )
+
+[node name="Connection_Modules" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="Straight" type="CSGCombiner" parent="."]
+use_collision = true
+
+[node name="Base" type="CSGBox" parent="Straight"]
+width = 8.2
+height = 1.508
+depth = 5.0
+material = SubResource( 1 )
+
+[node name="SubBase" type="CSGBox" parent="Straight"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.720748, 0 )
+operation = 2
+width = 7.0
+height = 0.7
+depth = 5.0177
+material = SubResource( 2 )
+
+[node name="Straight_Small" type="CSGCombiner" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11.2306 )
+use_collision = true
+
+[node name="Base" type="CSGBox" parent="Straight_Small"]
+width = 5.2
+height = 1.508
+depth = 5.0
+material = SubResource( 1 )
+
+[node name="SubBase" type="CSGBox" parent="Straight_Small"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.720748, 0 )
+operation = 2
+width = 4.0
+height = 0.7
+depth = 5.0177
+material = SubResource( 2 )
+
+[node name="Straight_Shrink" type="CSGCombiner" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.57226 )
+use_collision = true
+
+[node name="Base_Large" type="CSGBox" parent="Straight_Shrink"]
+width = 8.2
+height = 1.508
+depth = 5.0
+material = SubResource( 1 )
+
+[node name="Base_Small" type="CSGBox" parent="Straight_Shrink"]
+width = 5.2
+height = 1.508
+depth = 5.0
+material = SubResource( 1 )
+
+[node name="SubBase" type="CSGBox" parent="Straight_Shrink"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.720748, 0.948532 )
+operation = 2
+width = 4.0
+height = 0.7
+depth = 5.0177
+material = SubResource( 2 )
+
+[node name="SubBase4" type="CSGBox" parent="Straight_Shrink"]
+transform = Transform( 0.956504, 0, -0.291721, 0, 1, 0, 0.291721, 0, 0.956504, -1.34094, 0.720748, 0 )
+operation = 2
+width = 2.68821
+height = 0.7
+depth = 6.88793
+material = SubResource( 2 )
+
+[node name="SubBase5" type="CSGBox" parent="Straight_Shrink"]
+transform = Transform( 0.956504, 0, 0.291721, 0, 1, 0, -0.291721, 0, 0.956504, 1.35483, 0.720748, 0 )
+operation = 2
+width = 2.68821
+height = 0.7
+depth = 6.88793
+material = SubResource( 2 )
+
+[node name="SubBase2" type="CSGBox" parent="Straight_Shrink"]
+transform = Transform( 0.956504, 0, -0.291721, 0, 1, 0, 0.291721, 0, 0.956504, -5.23378, 0.0350777, -0.724955 )
+operation = 2
+width = 4.0
+height = 1.6267
+depth = 6.05073
+material = SubResource( 1 )
+
+[node name="SubBase3" type="CSGBox" parent="Straight_Shrink"]
+transform = Transform( 0.956504, 0, 0.291721, 0, 1, 0, -0.291721, 0, 0.956504, 5.23829, 0.0350777, -0.724955 )
+operation = 2
+width = 4.0
+height = 1.6267
+depth = 6.05073
+material = SubResource( 1 )
+
+[node name="Turn_Left" type="CSGCombiner" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.56047 )
+use_collision = true
+
+[node name="CSGCombiner2" type="CSGCombiner" parent="Turn_Left"]
+
+[node name="Base" type="CSGBox" parent="Turn_Left/CSGCombiner2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.2053 )
+width = 8.2
+height = 1.508
+depth = 13.1841
+material = SubResource( 1 )
+
+[node name="Base2" type="CSGBox" parent="Turn_Left/CSGCombiner2"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.57542, 0, -1.30823 )
+width = 8.2
+height = 1.508
+depth = 5.0
+material = SubResource( 1 )
+
+[node name="CSGCombiner" type="CSGCombiner" parent="Turn_Left"]
+operation = 2
+
+[node name="SubBase" type="CSGBox" parent="Turn_Left/CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.720748, 1.74046 )
+width = 7.0
+height = 0.7
+depth = 13.0982
+material = SubResource( 2 )
+
+[node name="SubBase2" type="CSGBox" parent="Turn_Left/CSGCombiner"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.55086, 0.720748, -1.30823 )
+width = 7.0
+height = 0.7
+depth = 5.73845
+material = SubResource( 2 )
+
+[node name="SubBase3" type="CSGBox" parent="Turn_Left/CSGCombiner"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.88174, 0.720748, -1.30823 )
+width = 7.0
+height = 0.7
+depth = 5.73845
+material = SubResource( 2 )

@@ -15,7 +15,7 @@ onready var shot_timer = $Shot_Timer
 onready var audio = $GolfBall_Audio
 
 func _ready():
-	friction = 0.8 # Default
+	friction = 0.92 # Default
 	bounce = 0.7
 	level = get_parent().name
 	spawnpoint = transform.origin
